@@ -42,11 +42,11 @@ const ViewPanel: React.FC = () => {
   console.log(currentApp);
 
   return (
-    <Stack direction="column" alignItems="center">
-      <h2>Select below which component you want to render.</h2>
+    <Stack className="mt-4" spacing="1rem" direction="column" alignItems="center">
+      <h3>Select below which component you want to render.</h3>
       <nav>
         {(appsConfig as AppConfig[]).map((app) => (
-          <Button key={app.name} onClick={() => handleAppChange(app.name)}>
+          <Button className="mr-4" key={app.name} onClick={() => handleAppChange(app.name)}>
             {app.name}
           </Button>
         ))}

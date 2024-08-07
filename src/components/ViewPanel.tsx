@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "../services/store";
 import { loadApp } from "../services/appSlice";
 import appsConfig from "../config/appsConfig.json";
+import { Button, Stack } from "rsuite";
 
 interface AppConfig {
   name: string;
@@ -38,15 +39,16 @@ const ViewPanel: React.FC = () => {
   const LoadedComponent = currentApp ? components[currentApp] : null;
 
   console.log(components);
-  console.log(currentApp)
+  console.log(currentApp);
 
   return (
-    <div>
+    <Stack direction="column" alignItems="center">
+      <h2>Select below which component you want to render.</h2>
       <nav>
         {(appsConfig as AppConfig[]).map((app) => (
-          <button key={app.name} onClick={() => handleAppChange(app.name)}>
+          <Button key={app.name} onClick={() => handleAppChange(app.name)}>
             {app.name}
-          </button>
+          </Button>
         ))}
       </nav>
       <div>
@@ -58,7 +60,7 @@ const ViewPanel: React.FC = () => {
           )}
         </Suspense>
       </div>
-    </div>
+    </Stack>
   );
 };
 

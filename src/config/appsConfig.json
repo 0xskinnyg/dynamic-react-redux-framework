@@ -1,0 +1,12 @@
+[
+  {
+    "name": "RegistrationForm1",
+    "path": "./RegistrationForm1",
+    "component": "RegistrationForm1"
+  },
+  {
+    "name": "RegistrationForm2",
+    "path": "./RegistrationForm2",
+    "component": "RegistrationForm2"
+  }
+]

@@ -1,13 +1,32 @@
 import React from "react";
-import { Button, ButtonToolbar, Form, Input, Text } from "rsuite";
+import { useDispatch, useSelector } from "react-redux";
+import { Button, ButtonToolbar, Form, Text } from "rsuite";
+import { setUser } from "../services/appSlice";
+import { AppDispatch, RootState } from "../services/store";
 
 const RegistrationForm1: React.FC = () => {
+  const user = useSelector((state: RootState) => state.app.user);
+
+  const dispatch: AppDispatch = useDispatch();
+
+  const handleUsernameChange = (input: string) => {
+    dispatch(setUser({ ...user, username: input }));
+  };
+
+  const handlePasswordChange = (input: string) => {
+    dispatch(setUser({ ...user, password: input }));
+  };
+
   return (
     <div>
       <Form>
         <Form.Group controlId="name">
           <Form.ControlLabel>Username</Form.ControlLabel>
-          <Form.Control name="name" />
+          <Form.Control
+            name="name"
+            value={user.username}
+            onChange={handleUsernameChange}
+          />
           <Form.HelpText>Username is required</Form.HelpText>
         </Form.Group>
         <Form.Group controlId="email">
@@ -17,7 +36,13 @@ const RegistrationForm1: React.FC = () => {
         </Form.Group>
         <Form.Group controlId="password">
           <Form.ControlLabel>Password</Form.ControlLabel>
-          <Form.Control name="password" type="password" autoComplete="off" />
+          <Form.Control
+            name="password"
+            type="password"
+            autoComplete="off"
+            value={user.password}
+            onChange={handlePasswordChange}
+          />
         </Form.Group>
         <Form.Group>
           <ButtonToolbar>

@@ -8,5 +8,10 @@
     "name": "RegistrationForm2",
     "path": "./RegistrationForm2",
     "component": "RegistrationForm2"
+  },
+  {
+    "name": "React-flow Diagram",
+    "path": "./ReactFlowDiagram",
+    "component": "ReactFlowDiagram"
   }
 ]
